@@ -647,7 +647,8 @@ func (t *TTFParser) ParseCmap(fd *bytes.Reader) error {
 		return err
 	}
 
-	if format == 12 {
+	// if format == 12 {
+	if format == 4 {
 		_, err = t.ParseCmapFormat12(fd)
 		if err != nil {
 			return err
