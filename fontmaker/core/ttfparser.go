@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
+	"fmt"
 	"io"
 	"os"
 	"regexp"
@@ -641,6 +642,7 @@ func (t *TTFParser) ParseCmap(fd *bytes.Reader) error {
 	}
 
 	format, err := t.ReadUShort(fd)
+	fmt.Println("# cmap format", format)
 	if err != nil {
 		return err
 	}
