@@ -645,6 +645,15 @@ func (t *TTFParser) ParseCmap(fd *bytes.Reader) error {
 		return err
 	}
 
+	if format == 12 {
+		_, err = t.ParseCmapFormat12(fd)
+		if err != nil {
+			return err
+		}
+
+		return nil
+	}
+
 	if format != 4 {
 		//Unexpected subtable format
 		return ERROR_UNEXPECTED_SUBTABLE_FORMAT
